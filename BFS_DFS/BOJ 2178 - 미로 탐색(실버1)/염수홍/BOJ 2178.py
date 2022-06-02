@@ -15,7 +15,8 @@ def BFS(row, col):
                 di, dj = row + ni[i] , col + nj[i]
                 if 0 <= di < N and 0 <= dj < M:
                     if visited[di][dj] == 0 and maze[di][dj] == 1:
-                        visited[di][dj] = visited[row][col] + 1 # cnt + 1씩 올려주기기                        q.append([di, dj])
+                        visited[di][dj] = visited[row][col] + 1 #  1씩 올려주기
+                        q.append([di, dj])
 
 
 # 기본 입력 및 선언

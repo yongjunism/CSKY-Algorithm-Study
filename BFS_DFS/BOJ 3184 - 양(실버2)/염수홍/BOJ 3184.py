@@ -31,7 +31,7 @@ def wolf_BFS(yang_point):
     q.append(yang_point)
     global visited
     global result_sheep, result_wolf
-    sheep, wolf = 0, 1
+    sheep, wolf = 0, 1 # 여기가 다름
     while q:
         row, col = q.popleft()
         visited[row][col] = 1
