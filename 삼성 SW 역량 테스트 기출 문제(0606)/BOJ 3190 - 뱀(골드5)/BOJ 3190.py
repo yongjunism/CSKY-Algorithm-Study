@@ -64,4 +64,3 @@ for i in range(len(rotation)):
     rotate(rotation[i][1])
         
 print(time)
-
