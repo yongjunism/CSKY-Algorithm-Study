@@ -34,7 +34,6 @@ def Move(row, col, ni, nj):
                 return True
             else:
                 return False
-
     else: # 없으면 게임 끝
         return False
 
