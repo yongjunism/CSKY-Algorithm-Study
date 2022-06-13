@@ -1,5 +1,5 @@
 import sys
-sys.stdin = open('input1.txt')
+sys.stdin = open('input2.txt')
 
 N, M = map(int, input().split()) # 세로 가로
 row, col, direction = map(int, input().split()) # 로봇 청소기 좌표, 방향
