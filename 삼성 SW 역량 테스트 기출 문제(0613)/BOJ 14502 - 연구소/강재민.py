@@ -1,21 +1,23 @@
 from collections import deque
 N,M = map(int, input().split())
+#----------------------초기 세팅------------------------------
+maze = [list(map(int,input().split()))for _ in range(N)] #연구소
+dir_ = [(-1,0),(0,1),(1,0),(0,-1)] #상하좌우
 
-maze = [list(map(int,input().split()))for _ in range(N)]
-dir_ = [(-1,0),(0,1),(1,0),(0,-1)]
-maze_virus = []
+maze_virus = [] #바이러스 리스트
 for y in range(N):
         for x in range(M) :
-            if maze[y][x] == 2: maze_virus.append((x,y))
-answer = 0
-
-def bfs(maze) :
+            if maze[y][x] == 2: maze_virus.append((x,y)) #바이러스 리스트 완성합니다
+answer = 0 #안전 영역의 최대크기
+#----------------------bfs함수------------------------------
+def bfs(maze) : #연구소 내에서 바이러스가 퍼지는 bfs함수
+    #이때 maze는 아까 복사해둔 복제품이기 때문에 실제 maze에 영향 x
     global answer
     q = deque(maze_virus)
     visited = [[0]*M for _ in range(N)]
     save_area = 0
     
-    while q:
+    while q: #바이러스 몽땅 퍼지기 시작합니다!!!!
         x,y = q.popleft()
         if visited[y][x] == 0:
             visited[y][x] = 1
@@ -28,18 +30,18 @@ def bfs(maze) :
                         maze[dy][dx] = 2
                         q.append((dx,dy))
                         
-    for i in maze:
+    for i in maze: #살아남은 area 평수 체크
         save_area += i.count(0)
-    answer = max(answer,save_area) #정답 갱신
+    answer = max(answer,save_area) #안전 영역의 크기가 지금까지 안전영역의 최대 크기보다 크다면 정답 갱신
     
-
+#----------------------백트래킹 함수------------------------------
 num_list = []
 def backtracking(idx): #맵에서 value가 0인것 3개를 찾는 백트래킹
     if len(num_list) == 3 : 
         one = (num_list[0] // M ,num_list[0] % M)
         two = (num_list[1] // M ,num_list[1] % M)
         three = (num_list[2] // M ,num_list[2] % M)
-        tmp_maze = list(map(lambda x : x[:],maze))
+        tmp_maze = list(map(lambda x : x[:],maze)) #연구소 deepcopy한 연구소 테스트용 2차원 복제품
         
         #3개를 다 찾았다면 벽을 세워준다.
         tmp_maze[one[0]][one[1]] = 1
@@ -53,5 +55,6 @@ def backtracking(idx): #맵에서 value가 0인것 3개를 찾는 백트래킹
             backtracking(i)
             num_list.pop()
             
+#----------------------메인 함수------------------------------
 backtracking(-1) #이렇게 해야 0부터 시작함
 print(answer)
