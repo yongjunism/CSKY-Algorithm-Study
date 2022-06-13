@@ -28,13 +28,15 @@ for y in range(Row):
         area = []
         sheep = 0
         wolf = 0
-        if garden[y][x] != '#' and visited[y][x] == 0: 
+        if garden[y][x] != '#' and visited[y][x] == 0: #방문하지 않은 좌표이고, 경계묜아 아니라면
             dfs(x,y)
-            if not area: area.append([x,y])
+
+            #dfs 돌린 후 area리스트에 따라 결과가 나뉨!
+            if not area: area.append([x,y])# 암것도 없으면 현재 좌표라도 한개 넣어줌
             for i in area:
-                if garden[i[1]][i[0]] == 'o':
+                if garden[i[1]][i[0]] == 'o': #양 숫자 카운트
                     sheep +=1
-                elif garden[i[1]][i[0]] == 'v':
+                elif garden[i[1]][i[0]] == 'v': #늑대 숫자 카운트
                     wolf +=1
             if sheep > wolf: 
                 final_sheep += sheep
