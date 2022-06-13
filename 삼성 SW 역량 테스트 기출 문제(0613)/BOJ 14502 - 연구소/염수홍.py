@@ -28,6 +28,7 @@ def BFS():
     di, dj = [1, -1, 0, 0], [0, 0, 1, -1]
     while q:
         row, col = q.popleft()
+        visited[row][col] = 1
         for i in range(4):
             ni, nj = row + di[i], col + dj[i]
             if 0<= ni < N and 0<= nj < M:
