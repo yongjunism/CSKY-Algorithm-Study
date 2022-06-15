@@ -7,7 +7,6 @@ def Compare(new_list):
             return False
     return True
 
-
 def Count(matrix):
     global result
     for i in range(N):
@@ -16,7 +15,6 @@ def Count(matrix):
         else:
             if Ramp(matrix, i): # 행검사 결과가 True일 때
                 result +=1
-
 
 def Ramp(matrix, i):
     visited_ground = [0] * N
@@ -53,9 +51,9 @@ def Ramp(matrix, i):
 N, L = map(int, input().split()) # N개의 줄 L의 길이 경사로
 ground = [list(map(int, input().split())) for _ in range(N)]
 newground = list(zip(*ground)) # 전치행렬 만들어주기
-# visited_ground = [[0]*N for _ in range(N)]
-# visited_newground = [[0]*N for _ in range(N)]
 result = 0
+print(ground)
+print(newground)
 
 Count(ground)
 Count(newground)
