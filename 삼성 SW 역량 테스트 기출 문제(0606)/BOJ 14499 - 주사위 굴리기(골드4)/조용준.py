@@ -34,8 +34,8 @@ for dir in action:
         continue
     move(dir)
     if board[x][y] == 0:
-        board[x][y] == dice[5]
+        board[x][y] = dice[5]
     else:
         dice[5] = board[x][y]
-        board[x][y] == 0
+        board[x][y] = 0
     print(dice[0])
