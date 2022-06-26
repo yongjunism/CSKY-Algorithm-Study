@@ -16,9 +16,6 @@ dx = [-1, 0, 1, 0]
 dy = [0, 1, 0, -1]
 
 while True:
-    if k > r*c:
-        print(0)
-        break
     if num == k:
         print(y+1, r-x)
         break
