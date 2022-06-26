@@ -6,9 +6,9 @@ base = 'https://www.acmicpc.net/problem/'
 
 while True:
 
-    print('문제 번호를 입력하세요. 중단하려면 1을 입력하세요.')
+    print('문제 번호를 입력하세요. 중단하려면 n을 입력하세요.')
     num = input()
-    if num == '1' or num == 'n':
+    if num == 'n':
         break
     url = base + num
     print(url)
