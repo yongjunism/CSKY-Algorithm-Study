@@ -7,7 +7,6 @@ def solution(priorities, location):
             q.append([priorities[i], 1])
         else:
             q.append([priorities[i], 0])
-
     cnt = 0
     while True:
         max_num = 0
