@@ -7,7 +7,7 @@ k = int(input())
 if k > r*c:
     print(0)
     exit(0)
-
+    
 visited = [[0] * c for _ in range(r)]
 
 num, dir = 1, 0
