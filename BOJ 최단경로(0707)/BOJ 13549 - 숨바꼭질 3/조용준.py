@@ -10,6 +10,7 @@ def bfs(start, bro):
             sis, sec = q.popleft()
             if sis == bro:
                 return sec
+                
             if 0 <= sis * 2 <= 100000 and not visited[sis*2]:
                 visited[sis*2] = 1
                 q.append((sis*2, sec))
