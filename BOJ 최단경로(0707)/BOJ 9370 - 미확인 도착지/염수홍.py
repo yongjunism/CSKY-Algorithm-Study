@@ -13,7 +13,7 @@ def dijkstra(start, end):
             continue
         for v, w in graph[node]:
             temp = time + w
-            if temp < distance[v]: # 이거 조건 안걸어줘서 시간초과 났었음
+            if temp < distance[v]: # 이거 조건 안걸어줘서 시간초과 났었음 @@
                 distance[v] = temp
                 heapq.heappush(Q, (temp, v))
     return distance[end]
@@ -29,8 +29,8 @@ for tc in range(1, T+1):
         a, b, d = map(int, input().split())
         graph[a].append((b, d)) # 양방향 도로
         graph[b].append((a, d))
-    result = []
 
+    result = []
     for _ in range(t):
         hubo = int(input())
         GtoH = dijkstra(g, h)
@@ -41,5 +41,6 @@ for tc in range(1, T+1):
         _2 = dijkstra(s, h) + GtoH + dijkstra(g, hubo)
         if _0 == _1 or _0 == _2:
             result.append(hubo)
+
     result.sort()
     print(*result)
